@@ -2,6 +2,7 @@ package ovh.quiquelhappy.mcplugins.gemmy.economy;
 
 import io.github.theluca98.textapi.ActionBar;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -27,7 +28,7 @@ public class pickup implements Listener {
                                 Integer quantityToAdd= quantity*main.plugin.getConfig().getInt("economy.value");
                                 player.getInventory().remove(Material.getMaterial(main.plugin.getConfig().getString("drops.gem")));
                                 eco.depositPlayer(((Player) e.getEntity()).getPlayer(), quantityToAdd);
-                                ActionBar bar = new ActionBar("+"+quantityToAdd+main.plugin.getConfig().getString("economy.currency"));
+                                ActionBar bar = new ActionBar(ChatColor.translateAlternateColorCodes('&', "&a&l+ "+main.plugin.getConfig().getString("economy.currency")+quantityToAdd));
                                 bar.send(player);
                             }
                         },

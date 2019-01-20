@@ -3,6 +3,7 @@ package ovh.quiquelhappy.mcplugins.gemmy.drops;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import ovh.quiquelhappy.mcplugins.gemmy.main;
 
 import java.util.Random;
@@ -59,6 +60,9 @@ public class drops {
         if (quantity>stackQuantity*64){
             ItemStack drop = new ItemStack(Material.getMaterial(main.plugin.getConfig().getString("drops.gem")));
             drop.setAmount(quantity-stackQuantity*64);
+            ItemMeta dropmeta = drop.getItemMeta();
+            dropmeta.setDisplayName(main.plugin.getConfig().getString("economy.currency"));
+            drop.setItemMeta(dropmeta);
             location.getWorld().dropItem(location, drop);
 
             if(quantity-stackQuantity*64>0){

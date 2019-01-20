@@ -2,6 +2,7 @@ package ovh.quiquelhappy.mcplugins.gemmy.economy;
 
 import io.github.theluca98.textapi.ActionBar;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,7 +32,7 @@ public class death implements Listener {
             eco.withdrawPlayer(player, money_final);
             this.gem.createExactDrop(player, player.getLocation(), money_final);
 
-            ActionBar bar = new ActionBar("-"+money_final+main.plugin.getConfig().getString("economy.currency"));
+            ActionBar bar = new ActionBar(ChatColor.translateAlternateColorCodes('&', "&4&l- "+main.plugin.getConfig().getString("economy.currency")+money_final));
             bar.send(player);
         }
     }
