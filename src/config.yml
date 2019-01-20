@@ -1,0 +1,151 @@
+# GEM DROP SECTION
+drops:
+
+  # enable or disable drops when breaking or killing mobs
+
+  enable: true
+
+  # set the material dropped
+  # check material IDs here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+
+  gem: EMERALD
+
+  # set the particle effect when dropping a gem
+  # particle ids: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
+
+  particle: CLOUD
+
+  # set the sound effect when dropping a gem
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+  # be careful with the quantity, remember that some players can still use X-RAY and could
+  # gain too much money if you don't prevent it.
+
+  # blocks placed by the user do not drop any gems (check blacklisting option below).
+  # Only the ones that are already on the map. if you want to try the plugin use world
+  # edit to set some blocks from any of the materials set below (or set block blacklisting to 0 TEMPORALLY).
+
+  # if min < 0 the gem would only be dropped when 1 <= X
+
+  # check material IDs here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+
+  blocks:
+    IRON_ORE:
+      min: 0
+      max: 1
+    GOLD_ORE:
+      min: 0
+      max: 1
+    REDSTONE_ORE:
+      min: 0
+      max: 1
+    COAL_ORE:
+      min: -1
+      max: 1
+    DIAMOND_ORE:
+      min: 1
+      max: 4
+    EMERALD_ORE:
+      min: 1
+      max: 4
+    LAPIS_ORE:
+      min: 1
+      max: 3
+    QUARTZ_ORE:
+      min: 1
+      max: 3
+    LOG:
+      min: -2
+      max: 1
+    LOG_2:
+      min: -2
+      max: 1
+
+  # mobs spawned from spawners do not drop any gems unless you change the blacklisting option
+  # below this list.
+
+  # entity list (mobs): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+
+  mobs:
+    BLAZE:
+      min: 3
+      max: 10
+    CREEPER:
+      min: 2
+      max: 5
+    ELDER_GUARDIAN:
+      min: 3
+      max: 10
+    ENDERMAN:
+      min: 2
+      max: 7
+    ENDERMITE:
+      min: 2
+      max: 5
+    EVOKER:
+      min: 5
+      max: 12
+    GHAST:
+      min: 3
+      max: 10
+    GUARDIAN:
+      min: 3
+      max: 10
+    HUSK:
+      min: 1
+      max: 3
+    MAGMA_CUBE:
+      min: 2
+      max: 5
+    POLAR_BEAR:
+      min: 2
+      max: 6
+    SHULKER:
+      min: 4
+      max: 5
+    SILVERFISH:
+      min: 2
+      max: 3
+    SKELETON:
+      min: 2
+      max: 5
+    SKELETON_HORSE:
+      min: 3
+      max: 7
+    SLIME:
+      min: -2
+      max: 2
+    VEX:
+      min: 1
+      max: 4
+    VINDICATOR:
+      min: 2
+      max: 5
+    WITCH:
+      min: 3
+      max: 5
+    ZOMBIE:
+      min: 2
+      max: 4
+    SPIDER:
+      min: 2
+      max: 5
+
+  blackListing:
+
+    # the number below represent the log size of the blocks placed by the user.
+    # if an user places a block from any of the materials set it will be added to the list,
+    # so when breaking it it won't drop any gems.
+
+    blocks: 200
+
+    # the number below represent the log size of mobs spawned via spawners.
+    # if an user kills a mob that has been spawned from a spawner it won't drop any gems.
+    # changing this you can set to only remember the last X mobs spawned from a spawner.
+
+    mobs: 200
+
+    # this is an important prevention method to protect the number of gems dropped
+    # and prevent from system abuse. You can disable an option by setting it to 0 (TEMPORALLY!!)
