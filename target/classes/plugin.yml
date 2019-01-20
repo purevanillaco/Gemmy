@@ -1,0 +1,4 @@
+name: Gemmy
+version: 1.0
+main: ovh.quiquelhappy.mcplugins.gemmy.main
+description: Deja caer esmeraldas para algunos bloques
