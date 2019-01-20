@@ -159,29 +159,25 @@ economy:
 
   enable: true
 
-  # check material IDs here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-  # here you can set the gems value. This items will be dropped for the rest of economical results,
-  # such as dying (as you can see below).
+  # here you can set the gem value. You can change the gem material at the "drops" section
 
-  gems:
-    EMERALD: 1
-    EMERALD_BLOCK: 9
+  value: 1 # x gem(s) = x unit(s) of virtual currency
 
   # when a player dies, you can set the % of his balance to be removed and dropped
   # decimal values will be truncated if the drop values don't match up with the gem values.
   # you can disable this option or modify % values based on permissions
 
   death:
-    enabled: true
+    enable: true
+
+    # currency character.
+
+    currency: "$"
 
     # do not establish more than one permission of this type to a player.
 
-    permissions:
+    default: 15 # reminder: 15=15%. DON'T REMOVE OR DISABLE IT. perm (default) gemmy.death.default
 
-      # .default is applied by default. DON'T REMOVE IT OR DISABLE IT.
-      # in case you want to remove it, just disable the death option or
-      # set it to 0 (0%). You don't have to negate it in your perm manager.
-
-      gemmy.death.default: 15 # reminder: 15=15%. DON'T REMOVE OR DISABLE IT
-      gemmy.death.vip: 5 # reminder: 5=5%
-      gemmy.death.admin: 0 # reminder: 0=0%
+    # if you want another % just set the permission to be gemmy.death.0-100 (without %).
+    # for example, if you want players to drop 10% of their money, set gemmy.death.10
+    # into their permission group.
