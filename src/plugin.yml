@@ -1,4 +1,4 @@
 name: Gemmy
-version: 1.0
+version: 2.0
 main: ovh.quiquelhappy.mcplugins.gemmy.main
-description: Deja caer esmeraldas para algunos bloques
+description: Gem based economy helper
