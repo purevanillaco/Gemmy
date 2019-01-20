@@ -149,3 +149,39 @@ drops:
 
     # this is an important prevention method to protect the number of gems dropped
     # and prevent from system abuse. You can disable an option by setting it to 0 (TEMPORALLY!!)
+
+# ECONOMY SECTION
+# DEPENDENCIES -> Valut: https://github.com/MilkBowl/Vault, by MilkBowl.
+economy:
+
+  # enable or disable economy system. REMINDER: enabling this will make the specified items to
+  # disappear and transform into virtual economy once picked-up.
+
+  enable: true
+
+  # check material IDs here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+  # here you can set the gems value. This items will be dropped for the rest of economical results,
+  # such as dying (as you can see below).
+
+  gems:
+    EMERALD: 1
+    EMERALD_BLOCK: 9
+
+  # when a player dies, you can set the % of his balance to be removed and dropped
+  # decimal values will be truncated if the drop values don't match up with the gem values.
+  # you can disable this option or modify % values based on permissions
+
+  death:
+    enabled: true
+
+    # do not establish more than one permission of this type to a player.
+
+    permissions:
+
+      # .default is applied by default. DON'T REMOVE IT OR DISABLE IT.
+      # in case you want to remove it, just disable the death option or
+      # set it to 0 (0%). You don't have to negate it in your perm manager.
+
+      gemmy.death.default: 15 # reminder: 15=15%. DON'T REMOVE OR DISABLE IT
+      gemmy.death.vip: 5 # reminder: 5=5%
+      gemmy.death.admin: 0 # reminder: 0=0%
