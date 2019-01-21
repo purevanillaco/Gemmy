@@ -1,6 +1,7 @@
 package ovh.quiquelhappy.mcplugins.gemmy.drops;
 
 import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -61,6 +62,11 @@ public class drops {
             ItemStack drop = new ItemStack(Material.getMaterial(main.plugin.getConfig().getString("drops.gem")));
             drop.setAmount(quantity-stackQuantity*64);
             ItemMeta dropmeta = drop.getItemMeta();
+
+            if(main.plugin.getConfig().getBoolean("economy.enable") && main.plugin.getConfig().getBoolean("economy.enchant")){
+                dropmeta.addEnchant(Enchantment.LUCK, 1,true);
+            }
+
             dropmeta.setDisplayName(main.plugin.getConfig().getString("economy.currency"));
             drop.setItemMeta(dropmeta);
             location.getWorld().dropItem(location, drop);

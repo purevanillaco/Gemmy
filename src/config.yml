@@ -20,6 +20,9 @@ drops:
 
   sound: ENTITY_EXPERIENCE_ORB_PICKUP
 
+  # advice: you can change if the gem has enchantments or not in the economy section
+  # the "enchant" option there will work even if the economy is disabled.
+
   # be careful with the quantity, remember that some players can still use X-RAY and could
   # gain too much money if you don't prevent it.
 
@@ -166,6 +169,12 @@ economy:
   # currency character.
 
   currency: "$"
+
+  # accept the item as currency only if it enchanted. This will cause your drops to be enchanted.
+  # this will allow to get the players the normal item and use it without enchantments, while still
+  # getting gems. If disabled both enchanted and non enchanted items will be considered as gems.
+
+  enchant: true
 
   # when a player dies, you can set the % of his balance to be removed and dropped
   # decimal values will be truncated if the drop values don't match up with the gem values.
