@@ -2,3 +2,9 @@ name: Gemmy
 version: 2.0
 main: ovh.quiquelhappy.mcplugins.gemmy.main
 description: Gem based economy helper
+commands:
+  burst:
+    description: Create a gem burst
+    usage: /gemmy burst [player]
+    permission: gemmy.burst
+    permission-message: You don't have permission

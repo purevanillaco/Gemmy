@@ -6,17 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" line="65" />
+    <bookmark url="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" line="68" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8913b65b-cc7e-426b-bed7-e181536aa549" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/death.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/death.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="841">
+            <state relative-caret-position="901">
               <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+            <state relative-caret-position="119">
+              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -49,16 +49,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+            <state relative-caret-position="314">
+              <caret line="74" column="62" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3496#3497#0" expanded="true" />
-                <element signature="e#3523#3524#0" expanded="true" />
-                <element signature="e#3572#3573#0" expanded="true" />
-                <element signature="e#3600#3601#0" expanded="true" />
-                <element signature="e#3632#3633#0" expanded="true" />
-                <element signature="e#3697#3698#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="569">
-              <caret line="167" column="2" selection-start-line="167" selection-start-column="2" selection-end-line="167" selection-end-column="2" />
+              <caret line="171" column="96" selection-start-line="171" selection-start-column="96" selection-end-line="171" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -76,20 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="34" selection-end-column="162" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+            <state relative-caret-position="501">
+              <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="162" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,14 +80,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java">
+        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
-              <caret line="30" column="181" selection-start-line="30" selection-start-column="181" selection-end-line="30" selection-end-column="181" />
+              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#856#1465#0" expanded="true" />
-                <element signature="e#1464#1465#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="23" column="86" selection-start-line="23" selection-start-column="86" selection-end-line="23" selection-end-column="86" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1808#2069#0" expanded="true" />
+                <element signature="e#2068#2069#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-264">
+            <state relative-caret-position="68">
               <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="18" selection-end-column="28" />
             </state>
           </provider>
@@ -122,9 +116,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2142" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -155,6 +147,7 @@
       <find>get</find>
       <find>eco</find>
       <find>currency</find>
+      <find>itemstack</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -163,14 +156,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/plugin.yml" />
         <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/config.yml" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" />
         <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java" />
+        <option value="$PROJECT_DIR$/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" />
+        <option value="$PROJECT_DIR$/src/config.yml" />
         <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java" />
+        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" />
       </list>
     </option>
   </component>
@@ -195,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,6 +234,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,8 +308,8 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49837488" visible="true" weight="0.25198728" />
-      <window_info id="Structure" order="1" sideWeight="0.5016251" side_tool="true" visible="true" weight="0.25198728" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49729145" visible="true" weight="0.25397456" />
+      <window_info id="Structure" order="1" sideWeight="0.50270855" side_tool="true" visible="true" weight="0.25397456" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -361,12 +354,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+        <state relative-caret-position="901">
+          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemmy.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -375,62 +378,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java">
+    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        <state relative-caret-position="119">
+          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="162" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-            <element signature="e#3523#3524#0" expanded="true" />
-            <element signature="e#3572#3573#0" expanded="true" />
-            <element signature="e#3600#3601#0" expanded="true" />
-            <element signature="e#3632#3633#0" expanded="true" />
-            <element signature="e#3697#3698#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2142" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="18" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
-          <caret line="167" column="2" selection-start-line="167" selection-start-column="2" selection-end-line="167" selection-end-column="2" />
+          <caret line="171" column="96" selection-start-line="171" selection-start-column="96" selection-end-line="171" selection-end-column="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
+    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="34" selection-end-column="162" />
+        <state relative-caret-position="314">
+          <caret line="74" column="62" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -439,12 +414,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="30" column="181" selection-start-line="30" selection-start-column="181" selection-end-line="30" selection-end-column="181" />
+        <state relative-caret-position="382">
+          <caret line="23" column="86" selection-start-line="23" selection-start-column="86" selection-end-line="23" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#856#1465#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
+            <element signature="e#1808#2069#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
