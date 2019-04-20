@@ -29,6 +29,7 @@ public class drops {
     }
 
     public void createExactDrop(Player player, Location location, Integer quantity) {
+
         String sound=main.plugin.getConfig().getString("drops.sound");
         String particle=main.plugin.getConfig().getString("drops.particle");
         Timer timer = new Timer();
@@ -50,8 +51,12 @@ public class drops {
                 if (counter >= quantity){
                     timer.cancel();
                 }
-                location.getWorld().playSound(player.getLocation(), Sound.valueOf(sound), 10.0F, 1.0F);
-                location.getWorld().spawnParticle(Particle.valueOf(particle), location.getX(), location.getY(), location.getZ(), 10);
+                if(main.plugin.getConfig().getBoolean("drops.sound-enabled")){
+                    location.getWorld().playSound(player.getLocation(), Sound.valueOf(sound), 10.0F, 1.0F);
+                }
+                if(main.plugin.getConfig().getBoolean("drops.particle-enabled")){
+                    location.getWorld().spawnParticle(Particle.valueOf(particle), location.getX(), location.getY(), location.getZ(), 10);
+                }
                 counter++;
             }
         }, begin, timeInterval);

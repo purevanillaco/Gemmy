@@ -1,9 +1,12 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Gemmy:jar">
+  <artifact type="jar" build-on-make="true" name="Gemmy:jar">
     <output-path>$USER_HOME$/out/mcplugins</output-path>
     <root id="archive" name="Gemmy.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/src/config.yml" />
+      <element id="library" level="project" name="Maven: net.milkbowl.vault:VaultAPI:1.7" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
       <element id="module-output" name="Gemmy" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/github/theluca98/TextAPI/1.12.2-R2.2/TextAPI-1.12.2-R2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/TextAPI.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
