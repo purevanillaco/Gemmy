@@ -65,7 +65,7 @@ public class main extends JavaPlugin {
                 getServer().getPluginManager().disablePlugin(this);
             } else {
                 System.out.println("[Gemmy] Hooked into Vault");
-                Bukkit.getServer().getPluginManager().registerEvents(new death(), this);;
+                Bukkit.getServer().getPluginManager().registerEvents(new death(), this);
                 Bukkit.getServer().getPluginManager().registerEvents(new pickup(), this);
             }
         } else {
