@@ -6,7 +6,7 @@
       <element id="library" level="project" name="Maven: net.milkbowl.vault:VaultAPI:1.7" />
       <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
       <element id="module-output" name="Gemmy" />
-      <element id="extracted-dir" path="$USER_HOME$/Desktop/TextAPI.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/TextAPI.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

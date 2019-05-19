@@ -3,6 +3,9 @@ package ovh.quiquelhappy.mcplugins.gemmy.drops;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -11,10 +14,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import ovh.quiquelhappy.mcplugins.gemmy.main;
 
 public class blocks implements Listener {
-    drops gem = new drops();
+    static drops gem = new drops();
     ArrayList<Location> bannedLocations = new ArrayList();
 
     public blocks() {
@@ -26,7 +30,17 @@ public class blocks implements Listener {
         Material block = event.getBlock().getType();
         Player player = event.getPlayer();
         if (!this.bannedLocations.contains(location) && this.blockList().contains(block)) {
-            this.gem.createDrop(player, location, main.plugin.getConfig().getInt("drops.blocks." + block.toString() + ".min"), main.plugin.getConfig().getInt("drops.blocks." + block.toString() + ".max"));
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    if(event.getPlayer().getLocation().getWorld().getBlockAt(event.getBlock().getLocation()).getType() == Material.AIR){
+                        gem.createDrop(player, location, main.plugin.getConfig().getInt("drops.blocks." + block.toString() + ".min"), main.plugin.getConfig().getInt("drops.blocks." + block.toString() + ".max"));
+                    } else {
+                        TextComponent msg = new TextComponent("§e§lGEMS §7You can only get gems from blocks in unprotected areas: "+(event.getPlayer().getLocation().getWorld().getBlockAt(event.getBlock().getLocation()).getType()).toString());
+                        Objects.requireNonNull(player).spigot().sendMessage(msg);
+                    }
+                }
+            }.runTaskLater(main.plugin, 1);
         }
 
     }

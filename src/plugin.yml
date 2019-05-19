@@ -1,5 +1,5 @@
 name: Gemmy
-version: 2.1
+version: 2.2
 main: ovh.quiquelhappy.mcplugins.gemmy.main
 description: Gem based economy helper
 commands:

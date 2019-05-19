@@ -16,10 +16,17 @@ public class drops {
     }
 
     public Integer createDrop(Player player, Location location, Integer min, Integer max) {
+
         Random r = new Random();
+
+        if(min < 0){
+            min = Math.abs(min);
+        }
+
         int Low = min + 1;
         int High = max + 1;
-        int Result = r.nextInt(High - Low) + Low;
+
+        int Result = r.nextInt(High + Low) - Low;
 
         if(Result>0){
             createExactDrop(player, location, Result);
