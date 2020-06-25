@@ -5,139 +5,70 @@
       <artifact name="Gemmy:jar" />
     </artifacts-to-build>
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" line="65" />
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8913b65b-cc7e-426b-bed7-e181536aa549" name="Default Changelist" comment="added mute option">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_MilkBowl_VaultAPI_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/cmd/DropAmount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/cmd/MoneyRain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/event/Money.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/util/Drop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/util/Harvest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/util/Range.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/co/purevanilla/mcplugins/gemmy/util/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Gemmy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gemmy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gemmy_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gemmy_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_13_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_1_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_theluca98_TextAPI_1_12_2_R2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_13_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_milkbowl_vault_VaultAPI_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_1_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_1_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/drops/drops$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/death.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ovh/quiquelhappy/mcplugins/gemmy/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/plugin.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="66" column="64" selection-start-line="66" selection-start-column="64" selection-end-line="67" selection-end-column="88" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1103#1945#0" expanded="true" />
-                <element signature="e#1944#1945#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="162" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" column="86" selection-start-line="23" selection-start-column="86" selection-end-line="23" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="18" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemmy.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -146,139 +77,33 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>disabling</find>
-      <find>createDrop</find>
-      <find>gem</find>
-      <find>config</find>
-      <find>locationstatic.getWorld()</find>
-      <find>get</find>
-      <find>eco</find>
-      <find>currency</find>
-      <find>itemstack</find>
-      <find>sound</find>
-      <find>file</find>
-      <find>list</find>
-      <find>drop</find>
-      <find>event</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java" />
-        <option value="$PROJECT_DIR$/src/config.yml" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java" />
-        <option value="$PROJECT_DIR$/src/plugin.yml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java" />
-        <option value="$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Gemmy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Gemmy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Gemmy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1727" />
-    <option name="height" value="1047" />
-  </component>
+  <component name="ProjectId" id="1dovqUq39GGpBfYd0ZktKDQODmC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Gemmy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gemmy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gemmy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gemmy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gemmy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gemmy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gemmy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gemmy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gemmy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gemmy" type="462c0819:PsiDirectoryNode" />
-              <item name="drops" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gemmy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555789792272" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/TextAPI.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23333333" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -291,6 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547986692859</updated>
+      <workItem from="1593104452716" duration="1480000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1547986849610</created>
@@ -344,39 +170,22 @@
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5888" visible="true" weight="0.13513513" />
-      <window_info id="Structure" order="1" sideWeight="0.4112" side_tool="true" visible="true" weight="0.13513513" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32932165" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32286024" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3261105" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.53970826" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial" />
     <MESSAGE value="imported spigot plugin" />
     <MESSAGE value="added economy config" />
@@ -384,185 +193,42 @@
     <MESSAGE value="added mute option" />
     <option name="LAST_COMMIT_MESSAGE" value="added mute option" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="66" column="64" selection-start-line="66" selection-start-column="64" selection-end-line="67" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/death.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="33" selection-start-line="33" selection-end-line="34" selection-end-column="162" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/economy/pickup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="86" selection-start-line="23" selection-start-column="86" selection-end-line="23" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/mobs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemmy.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/blocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1103#1945#0" expanded="true" />
-            <element signature="e#1944#1945#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ovh/quiquelhappy/mcplugins/gemmy/drops/drops.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Gemmy:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8.0_211</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Gemmy</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: com.googlecode.json-simple:json-simple:1.1.1</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23333333" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="760" y="94" key="#Project_Structure" timestamp="1593104775531">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="760" y="94" key="#Project_Structure/0.0.2560.1040@0.0.2560.1040" timestamp="1593104775531" />
+    <state x="1085" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1593105392901">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1085" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1593105392901" />
+    <state width="2517" height="282" key="GridCell.Tab.0.bottom" timestamp="1593105929162">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="282" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1593105929162" />
+    <state width="2517" height="282" key="GridCell.Tab.0.center" timestamp="1593105929162">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="282" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1593105929162" />
+    <state width="2517" height="282" key="GridCell.Tab.0.left" timestamp="1593105929162">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="282" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1593105929162" />
+    <state width="2517" height="282" key="GridCell.Tab.0.right" timestamp="1593105929162">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="282" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1593105929162" />
+    <state x="810" y="175" key="Maven.ArtifactSearchDialog" timestamp="1593104760071">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="810" y="175" key="Maven.ArtifactSearchDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1593104760071" />
+    <state x="1089" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593105058738">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1089" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1040@0.0.2560.1040" timestamp="1593105058738" />
+    <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1593105929147">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="936" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1593105929147" />
   </component>
 </project>
