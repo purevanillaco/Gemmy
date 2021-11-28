@@ -1,9 +1,10 @@
 main: co.purevanilla.mcplugins.gemmy.Main
 author: quiquelhappy
-api-version: "1.13"
+api-version: 1.13
 description: "Semi-item based economy"
-version: "2.3.2"
+version: 2.4.0
 name: "Gemmy"
+depend: ["Vault"]
 commands:
   gemdrop:
     permission: "gemmy.gemdrop"

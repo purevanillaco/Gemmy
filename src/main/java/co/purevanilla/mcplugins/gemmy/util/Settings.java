@@ -20,6 +20,12 @@ public class Settings {
     public Range breeding;
     public int glowDuration = 10;
 
+    public boolean nearPickup;
+    public boolean nearPickupParticleEnabled;
+    public Particle nearPickupParticle;
+
+    public List<String> disabledWorlds;
+
     public Material gem;
     public Material largeGem;
     public int condenseBreakpoint;
@@ -189,6 +195,14 @@ public class Settings {
     }
 
     public Settings(FileConfiguration configuration){
+
+
+        disabledWorlds = configuration.getStringList("drops.disabled_worlds");
+        nearPickup = configuration.getBoolean("drops.near-pickup");
+        nearPickupParticleEnabled = configuration.getBoolean("drops.near-pickup-particle-enabled");
+        if(nearPickupParticleEnabled){
+            nearPickupParticle = Particle.valueOf(configuration.getString("drops.near-pickup-particle"));
+        }
 
         glowDuration = configuration.getInt("drops.glow-duration");
         deathEnabled = configuration.getBoolean("economy.death.enable");

@@ -4,8 +4,6 @@ import co.purevanilla.mcplugins.gemmy.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.SoundCategory;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -41,7 +39,7 @@ public class Drop {
         newLocation.setZ(randomBetweenRange(newLocation.getZ()-2,newLocation.getZ()+2));
 
         this.location=newLocation;
-        this.quantity=Main.settings.getCondenseBreakpoint();
+        this.quantity= Main.settings.getCondenseBreakpoint();
 
     }
 
@@ -118,7 +116,7 @@ public class Drop {
                                     @Override
                                     public void run() {
                                         if(Main.settings.getSound()!=null){
-                                            location.getWorld().playSound(location, Main.settings.getSound(), SoundCategory.BLOCKS,1,getRandomPitch());
+                                            location.getWorld().playSound(location, Main.settings.getSound(), SoundCategory.BLOCKS,0.8F,getRandomPitch());
                                         }
                                         itemEntity[0].setCustomName(Main.settings.getDropName(finalI));
                                     }

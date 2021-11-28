@@ -1,9 +1,15 @@
 
 # GEM DROP SECTION
 
+
 drops:
+  disabled_worlds:
+    - lobby
+  near-pickup: true # pickup items with full inventory if the drop is near the player
+  near-pickup-particle-enabled: true # spawns a particle on the dropped gem when the player inv is full and near-pickup is enabled
+  near-pickup-particle: VILLAGER_HAPPY
   gem: EMERALD
-  condense-from: 8
+  condense-from: 8 # from this number and above, gems with this value will appear with the large material item
   large: EMERALD_BLOCK
   particle-enabled: true
   particle: CLOUD
@@ -16,28 +22,55 @@ drops:
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
 blocks:
+  COPPER_ORE:
+    min: 0
+    max: 1
+  DEEPSLATE_COPPER_ORE:
+    min: 0
+    max: 1
   COAL_ORE:
     min: -1
     max: 1
+  DEEPSLATE_COAL_ORE:
+    min: -1
+    max: 1
   DIAMOND_ORE:
+    min: 1
+    max: 5
+  DEEPSLATE_DIAMOND_ORE:
     min: 1
     max: 4
   EMERALD_ORE:
     min: 1
     max: 4
+  DEEPSLATE_EMERALD_ORE:
+    min: 1
+    max: 4
   GOLD_ORE:
+    min: 0
+    max: 1
+  DEEPSLATE_GOLD_ORE:
     min: 0
     max: 1
   IRON_ORE:
     min: 0
     max: 1
+  DEEPSLATE_IRON_ORE:
+    min: 0
+    max: 1
   LAPIS_ORE:
+    min: 1
+    max: 3
+  DEEPSLATE_LAPIS_ORE:
     min: 1
     max: 3
   NETHER_QUARTZ_ORE:
     min: 1
     max: 2
   REDSTONE_ORE:
+    min: 0
+    max: 1
+  DEEPSLATE_REDSTONE_ORE:
     min: 0
     max: 1
   JUNGLE_LOG:
@@ -94,9 +127,9 @@ mobs:
   ELDER_GUARDIAN:
     min: 8
     max: 10
-  ENDERMAN:
-    min: 2
-    max: 7
+  ENDERMAN: # enable with caution, nerfed for player farms
+    min: -1
+    max: 0
   ENDERMITE:
     min: 2
     max: 5
@@ -123,7 +156,7 @@ mobs:
     max: 9
   MAGMA_CUBE:
     min: 2
-    max: 5
+    max: 6
   SHULKER:
     min: 4
     max: 5

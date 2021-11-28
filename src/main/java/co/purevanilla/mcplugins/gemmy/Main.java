@@ -2,8 +2,8 @@ package co.purevanilla.mcplugins.gemmy;
 
 import co.purevanilla.mcplugins.gemmy.cmd.DropAmount;
 import co.purevanilla.mcplugins.gemmy.cmd.MoneyRain;
-import co.purevanilla.mcplugins.gemmy.event.Money;
 import co.purevanilla.mcplugins.gemmy.util.Harvest;
+import co.purevanilla.mcplugins.gemmy.event.Money;
 import co.purevanilla.mcplugins.gemmy.util.Settings;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -13,8 +13,11 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
+
 
 public class Main extends JavaPlugin {
 
@@ -41,7 +44,7 @@ public class Main extends JavaPlugin {
             return;
         } else {
             getServer().getPluginManager().registerEvents(new Money(), this);
-            this.getLogger().log(Level.INFO,"Enabled drops");
+            this.getLogger().log(Level.INFO,"enabled drops");
         }
 
         MoneyRain moneyRainManager = new MoneyRain();
