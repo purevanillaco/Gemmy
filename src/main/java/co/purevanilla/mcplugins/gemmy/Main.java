@@ -6,7 +6,6 @@ import co.purevanilla.mcplugins.gemmy.util.Harvest;
 import co.purevanilla.mcplugins.gemmy.event.Money;
 import co.purevanilla.mcplugins.gemmy.util.Settings;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.Plugin;
@@ -24,8 +23,8 @@ public class Main extends JavaPlugin {
     public static Settings settings;
     public static Plugin plugin;
 
+    public static int playerPlacedIndex = 0;
     public static List<Block> playerPlaced = new ArrayList<Block>();
-    public static List<Integer> spawnerEntities = new ArrayList<Integer>();
     public static HashMap<Location, Harvest> expectedReplants = new HashMap<Location, Harvest>();
 
     public static Economy econ = null;
@@ -53,31 +52,6 @@ public class Main extends JavaPlugin {
         moneyRainManager.startChecker();
 
         // remove temporal
-
-        Bukkit.getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
-            @Override
-            public void run() {
-
-                try{
-
-                    if(expectedReplants.size()>256){
-                        expectedReplants.clear();
-                    }
-
-                    if(playerPlaced.size()>512){
-                        playerPlaced.clear();
-                    }
-
-                    if(spawnerEntities.size()>512){
-                        spawnerEntities.clear();
-                    }
-
-                } catch (NullPointerException err){
-                    // Fix later maybe?
-                }
-
-            }
-        },0,20L*120);
 
     }
 

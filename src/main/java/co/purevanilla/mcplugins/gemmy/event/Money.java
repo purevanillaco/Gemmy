@@ -12,15 +12,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPistonExtendEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Money implements Listener {
 
@@ -159,30 +162,34 @@ public class Money implements Listener {
     }
 
     @EventHandler
+    public void pistonPush(BlockPistonExtendEvent event){
+        for (Block block:event.getBlocks()) {
+            if(Main.settings.blockMaterials.contains(block.getType())){
+                block.setType(Material.AIR);
+            }
+        }
+    }
+
+    @EventHandler
     public void entityDeath(final EntityDeathEvent e){
 
-        Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
-            @Override
-            public void run() {
-                if(!Main.settings.disabledWorlds.contains(e.getEntity().getWorld().getName())) {
-                    try {
-                        if (e.getEntity().getKiller() != null) {
-                            if (Main.settings.entityTypeRangeHashMap().containsKey(e.getEntityType())) {
-                                if (Main.spawnerEntities.contains(e.getEntity().getEntityId())) {
-                                    Main.spawnerEntities.remove(Integer.valueOf(e.getEntity().getEntityId()));
-                                } else {
-                                    Drop drop = new Drop(e.getEntity().getLocation(), Main.settings.entityTypeRangeHashMap().get(e.getEntityType()).getAmount());
-                                    drop.spawn();
-                                }
+        if(!e.getEntity().hasMetadata("Spawner")){
+            Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
+                @Override
+                public void run() {
+                    if(!Main.settings.disabledWorlds.contains(e.getEntity().getWorld().getName())) {
+                        try {
+                            if (e.getEntity().getKiller() != null) {
+                                Drop drop = new Drop(e.getEntity().getLocation(), Main.settings.entityTypeRangeHashMap().get(e.getEntityType()).getAmount());
+                                drop.spawn();
                             }
-                        }
-                    } catch (NullPointerException err) {
+                        } catch (NullPointerException err) {
 
+                        }
                     }
                 }
-            }
-        });
-
+            });
+        }
     }
 
     @EventHandler
@@ -284,7 +291,19 @@ public class Money implements Listener {
                     if(!Main.settings.disabledWorlds.contains(e.getBlockPlaced().getWorld().getName())){
                         try{
                             if(Main.settings.getBlocksHashMap().containsKey(e.getBlock().getType()) && !(Main.settings.getProducts().contains(e.getBlock().getType()) || Main.settings.getSeeds().contains(e.getBlock().getType()))){
-                                Main.playerPlaced.add(e.getBlockPlaced());
+
+                                // remove old placings
+                                if(Main.playerPlacedIndex>=Main.settings.lengthPlaced-1){
+                                    Main.playerPlacedIndex=0;
+                                }
+
+                                if(Main.playerPlaced.size()<Main.settings.lengthPlaced){
+                                    Main.playerPlaced.add(e.getBlockPlaced());
+                                } else {
+                                    Main.playerPlaced.set(Main.playerPlacedIndex,e.getBlockPlaced());
+                                }
+
+                                Main.playerPlacedIndex++;
                             } else if(Main.expectedReplants.containsKey(e.getBlock().getLocation()) && (Main.settings.getProducts().contains(e.getBlock().getType()) || Main.settings.getSeeds().contains(e.getBlock().getType()))){
 
                                 final Material originalType = e.getBlock().getType();
@@ -314,21 +333,7 @@ public class Money implements Listener {
 
     @EventHandler
     public void entitySpawn(final SpawnerSpawnEvent e){
-
-        Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
-            @Override
-            public void run() {
-
-                if(!Main.settings.disabledWorlds.contains(e.getEntity().getWorld().getName())){
-                    try{
-                        Main.spawnerEntities.add(e.getEntity().getEntityId());
-                    } catch (NullPointerException err){
-                        // Fix it later I guess?
-                    }
-                }
-            }
-        });
-
+        e.getEntity().setMetadata("Spawner",new FixedMetadataValue(Main.plugin,true));
     }
 
     @EventHandler

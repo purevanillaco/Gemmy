@@ -13,6 +13,8 @@ import java.util.*;
 
 public class Settings {
 
+    public int lengthPlaced;
+
     public HashMap<Material,Range> blocks;
     public HashMap<EntityType,Range> entities;
 
@@ -196,6 +198,8 @@ public class Settings {
 
     public Settings(FileConfiguration configuration){
 
+
+        lengthPlaced = configuration.getInt("drops.player-placed-history-length");
 
         disabledWorlds = configuration.getStringList("drops.disabled_worlds");
         nearPickup = configuration.getBoolean("drops.near-pickup");

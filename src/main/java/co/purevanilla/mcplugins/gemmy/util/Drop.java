@@ -124,6 +124,17 @@ public class Drop {
 
                             }
 
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    if(Main.settings.getParticle()!=null){
+                                        location.getWorld().spawnParticle(Main.settings.getParticle(),location,(int) quantity);
+                                    }
+
+                                }
+                            }, quantity);
+
                         } else if(quantity>Main.settings.getCondenseBreakpoint()) {
 
                             ItemStack item = new ItemStack(Main.settings.getLargeGem(),1);

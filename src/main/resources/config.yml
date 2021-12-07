@@ -1,13 +1,16 @@
 
 # GEM DROP SECTION
-
+# - SOUNDS: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+# - PARTICLES: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
+# - ITEMS: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
 drops:
+  player-placed-history-length: 16384    # use lower if you don't have that much ram
   disabled_worlds:
     - lobby
   near-pickup: true # pickup items with full inventory if the drop is near the player
   near-pickup-particle-enabled: true # spawns a particle on the dropped gem when the player inv is full and near-pickup is enabled
-  near-pickup-particle: VILLAGER_HAPPY
+  near-pickup-particle: SMALL_SMOKE
   gem: EMERALD
   condense-from: 8 # from this number and above, gems with this value will appear with the large material item
   large: EMERALD_BLOCK
@@ -18,7 +21,7 @@ drops:
   glow-duration: 10 # seconds (set 0 to disable)
 
 # ALWAYS USE MATERIAL NAMES ACCORDING TO YOUR MINECRAFT SERVER API.
-# THIS LIST IS UPDATED TO 1.15. UPDATED LIST:
+# THIS LIST IS UPDATED TO 1.18. UPDATED LIST:
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
 blocks:
