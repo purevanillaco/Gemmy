@@ -8,8 +8,12 @@ import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
 
 public class Settings {
 
@@ -42,6 +46,13 @@ public class Settings {
     public Particle particle;
     public Sound sound;
 
+    // --- player drops cache
+
+    Calendar calendar;
+    public long gemsPerDay;
+    public Map<UUID,Long> playerGemsAmount;
+    public int currentDate;
+
     // --- compiled lists for fast access
 
     public List<Material> blockMaterials;
@@ -67,6 +78,37 @@ public class Settings {
 
     public ChatColor getCurrencyColor() {
         return currencyColor;
+    }
+
+    public void addPickedUpGems(Player player, int amount){
+        if(!playerGemsAmount.containsKey(player.getUniqueId())){
+            playerGemsAmount.put(player.getUniqueId(), (long) amount);
+        } else {
+            playerGemsAmount.put(player.getUniqueId(), playerGemsAmount.get(player.getUniqueId())+amount);
+        }
+    }
+
+    public float getCorrectionRate(Player player){
+        if(gemsPerDay>0){
+            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+            if(currentDate!=dayOfMonth){
+                // resets player obtained gems when a new day comes
+                playerGemsAmount.clear();
+                currentDate=dayOfMonth;
+            } else if(playerGemsAmount.containsKey(player.getUniqueId())){
+                float adjustedCorrection = 1f-(float) playerGemsAmount.get(player.getUniqueId())/gemsPerDay;
+                return Math.max(adjustedCorrection, 0f);
+            }
+        }
+        return 1f;
+    }
+
+    public void saveData(FileConfiguration data, File file) throws IOException {
+        data.set("dayOfMonth",currentDate);
+        for(Map.Entry<UUID, Long> entry : playerGemsAmount.entrySet()) {
+            data.set("playerGems."+entry.getKey().toString(),entry.getValue());
+        }
+        data.save(file);
     }
 
     public String getDropName(long amount){
@@ -196,8 +238,21 @@ public class Settings {
         return farming.get(result);
     }
 
-    public Settings(FileConfiguration configuration){
+    public Settings(FileConfiguration configuration, FileConfiguration data){
 
+        calendar=Calendar.getInstance();
+        playerGemsAmount = new HashMap<>();
+        currentDate = calendar.get(Calendar.DAY_OF_MONTH);
+        if(currentDate==data.getInt("dayOfMonth")){
+            // restore gem pickup counts for that day
+            Set<String> playerUUIDs = Objects.requireNonNull(data.getConfigurationSection("playerGems")).getKeys(false);
+            for (String uuidStr:playerUUIDs) {
+                playerGemsAmount.put(UUID.fromString(uuidStr),data.getLong("playerGems."+uuidStr));
+            }
+        } else {
+            Main.plugin.getLogger().log(Level.INFO,"skipping load, different day of month");
+        }
+        gemsPerDay=configuration.getLong("drops.gems-per-day-per-player");
 
         lengthPlaced = configuration.getInt("drops.player-placed-history-length");
 

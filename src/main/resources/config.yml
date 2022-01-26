@@ -5,6 +5,7 @@
 # - ITEMS: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
 drops:
+  gems-per-day-per-player: 0 # set to 0 or lower to disable. if enabled, players will get fewer gems when they are closer to reach the daily limit of gems
   player-placed-history-length: 16384    # use lower if you don't have that much ram
   disabled_worlds:
     - lobby

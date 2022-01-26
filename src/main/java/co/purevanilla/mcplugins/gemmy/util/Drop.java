@@ -16,11 +16,18 @@ import java.util.Random;
 public class Drop {
 
     Location location;
+    Player player;
     long quantity = 0;
 
     public Drop(Location location, long quantity){
         this.location=location;
         this.quantity=quantity;
+    }
+
+    public Drop(Location location, long quantity, Player player){
+        this.location=location;
+        this.quantity=quantity;
+        this.player=player;
     }
 
     public boolean hasQuantity(){
@@ -91,6 +98,15 @@ public class Drop {
                 public void run() {
 
                     final Item[] itemEntity = {null};
+
+
+                    if(player!=null){
+                        long originalQuantity = quantity;
+                        float correctionRate = Main.settings.getCorrectionRate(player);
+                        quantity=(long) Math.ceil(correctionRate*quantity);
+                        if(quantity==0&&originalQuantity>0&&correctionRate>0f) quantity=1; // the correction rate may null out drops and make em impossible, so we drop 1 gem if the cap hasn't been reached (correctionRate=0)
+                        Main.settings.addPickedUpGems(player, (int) quantity);
+                    }
 
                     if(quantity > 0){
 

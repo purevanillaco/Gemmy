@@ -5,10 +5,7 @@ import co.purevanilla.mcplugins.gemmy.util.Drop;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -23,7 +20,6 @@ import org.bukkit.metadata.FixedMetadataValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class Money implements Listener {
 
@@ -31,6 +27,9 @@ public class Money implements Listener {
     public void blockDestroy(final BlockBreakEvent e){
 
         if(!Main.settings.disabledWorlds.contains(e.getBlock().getWorld().getName())) {
+
+            Player player = e.getPlayer();
+
             final Material blockBroken = e.getBlock().getType();
             final Block blockBrokenObj = e.getBlock();
             Ageable crop = null;
@@ -60,13 +59,13 @@ public class Money implements Listener {
 
                                     if(Main.settings.getBlocks().contains(blockBroken)){
 
-                                        new Drop(e.getBlock().getLocation(),Main.settings.getBlockRange(blockBroken).getAmount()).spawn();
+                                        new Drop(e.getBlock().getLocation(),Main.settings.getBlockRange(blockBroken).getAmount(),player).spawn();
 
                                     } else if (finalCrop != null && (Main.settings.getProducts().contains(blockBroken) || Main.settings.getSeeds().contains(blockBroken))){
 
                                         if(finalCrop.getAge()== finalCrop.getMaximumAge()){
 
-                                            new Drop(e.getBlock().getLocation(),Main.settings.getHarvest(blockBroken).getHarvest().getAmount()).spawn();
+                                            new Drop(e.getBlock().getLocation(),Main.settings.getHarvest(blockBroken).getHarvest().getAmount(),player).spawn();
 
                                             // expect harvesting change
                                             Main.expectedReplants.put(blockBrokenObj.getLocation(),Main.settings.getHarvest(blockBroken));
@@ -105,7 +104,7 @@ public class Money implements Listener {
                         drop.setLocation(e.getItemDrop().getLocation());
                         drop.spawn();
                     }
-                } catch(NullPointerException err){
+                } catch(NullPointerException ignored){
 
                 }
             }
@@ -118,7 +117,6 @@ public class Money implements Listener {
         Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
             @Override
             public void run() {
-
 
                 try{
                     List<ItemStack> itemStacks = new ArrayList<>();
@@ -171,6 +169,19 @@ public class Money implements Listener {
     }
 
     @EventHandler
+    public void entityConvertEvent(EntityTransformEvent event){
+        Entity parentEntity = event.getEntity();
+        if(parentEntity.hasMetadata("Spawner")){
+
+            // if an entity gets transformed, and the original entity was spawned from an spawner, it will also get
+            // transformed.
+
+            event.getTransformedEntity().setMetadata("Spawner",new FixedMetadataValue(Main.plugin,true));
+        }
+    }
+
+
+    @EventHandler
     public void entityDeath(final EntityDeathEvent e){
 
         if(!e.getEntity().hasMetadata("Spawner")){
@@ -179,8 +190,9 @@ public class Money implements Listener {
                 public void run() {
                     if(!Main.settings.disabledWorlds.contains(e.getEntity().getWorld().getName())) {
                         try {
-                            if (e.getEntity().getKiller() != null) {
-                                Drop drop = new Drop(e.getEntity().getLocation(), Main.settings.entityTypeRangeHashMap().get(e.getEntityType()).getAmount());
+                            Player killer = e.getEntity().getKiller();
+                            if (killer != null) {
+                                Drop drop = new Drop(e.getEntity().getLocation(), Main.settings.entityTypeRangeHashMap().get(e.getEntityType()).getAmount(),killer);
                                 drop.spawn();
                             }
                         } catch (NullPointerException err) {
@@ -221,7 +233,6 @@ public class Money implements Listener {
                                             }, 0L);
                                         }
                                         Main.econ.depositPlayer(e.getPlayer(),(float) drop.getQuantity());
-
                                     }
                                 } catch(NullPointerException err){
                                     // fix it later I guess?
@@ -269,8 +280,11 @@ public class Money implements Listener {
 
                 if(!Main.settings.disabledWorlds.contains(e.getEntity().getWorld().getName())){
                     try{
-                        Drop drop = new Drop(e.getFather().getLocation(),Main.settings.getBreedingRange().getAmount());
-                        drop.spawn();
+                        LivingEntity cupid = e.getBreeder();
+                        if(cupid instanceof Player){
+                            Drop drop = new Drop(e.getFather().getLocation(),Main.settings.getBreedingRange().getAmount(),(Player) cupid);
+                            drop.spawn();
+                        }
                     } catch(NullPointerException err){
                         // fix it later I guess?
                     }
