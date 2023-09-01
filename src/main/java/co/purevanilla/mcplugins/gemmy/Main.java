@@ -3,7 +3,7 @@ package co.purevanilla.mcplugins.gemmy;
 import co.purevanilla.mcplugins.gemmy.cmd.DropAmount;
 import co.purevanilla.mcplugins.gemmy.cmd.MoneyRain;
 import co.purevanilla.mcplugins.gemmy.util.Harvest;
-import co.purevanilla.mcplugins.gemmy.event.Money;
+import co.purevanilla.mcplugins.gemmy.listener.Money;
 import co.purevanilla.mcplugins.gemmy.util.Settings;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Location;

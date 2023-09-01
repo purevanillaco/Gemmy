@@ -20,7 +20,7 @@ public class MoneyRain implements CommandExecutor {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
             @Override
             public void run() {
-                if(playerList.size()>0){
+                if(!playerList.isEmpty()){
                     for (Player player:playerList) {
                         try{
                             new Drop(player).spawn();

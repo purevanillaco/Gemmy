@@ -1,8 +1,8 @@
 main: co.purevanilla.mcplugins.gemmy.Main
 author: quiquelhappy
-api-version: 1.18
+api-version: 1.20
 description: "Semi-item based economy"
-version: 2.4.6
+version: 2.5.0
 name: "Gemmy"
 depend: ["Vault"]
 commands:

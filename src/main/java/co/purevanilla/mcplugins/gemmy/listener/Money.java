@@ -1,15 +1,18 @@
-package co.purevanilla.mcplugins.gemmy.event;
+package co.purevanilla.mcplugins.gemmy.listener;
 
 import co.purevanilla.mcplugins.gemmy.Main;
+import co.purevanilla.mcplugins.gemmy.event.Pickup;
 import co.purevanilla.mcplugins.gemmy.util.Drop;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPistonExtendEvent;
+import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.*;
@@ -144,6 +147,10 @@ public class Money implements Listener {
                         try{
                             Drop drop = new Drop(item);
                             if(drop.hasQuantity()){
+
+                                Pickup event = new Pickup((Player) e.getWhoClicked(), drop.getQuantity());
+                                Bukkit.getPluginManager().callEvent(event);
+
                                 Main.econ.depositPlayer((OfflinePlayer) e.getWhoClicked(),(float) drop.getQuantity());
                                 item.setAmount(0);
                             }
@@ -161,9 +168,33 @@ public class Money implements Listener {
 
     @EventHandler
     public void pistonPush(BlockPistonExtendEvent event){
-        for (Block block:event.getBlocks()) {
-            if(Main.settings.blockMaterials.contains(block.getType())){
-                block.setType(Material.AIR);
+        if(event.isCancelled()) return;
+        pistonPushEvent(event.getBlocks(), event.getDirection(), event.getBlock().getWorld());
+    }
+
+    @EventHandler
+    public void pistonPush(BlockPistonRetractEvent event){
+        if(event.isCancelled()) return;
+        pistonPushEvent(event.getBlocks(), event.getDirection(), event.getBlock().getWorld());
+    }
+
+    private void pistonPushEvent(List<Block> blocks, BlockFace direction, World world){
+        double deltaX = 0;
+        double deltaY = 0;
+        double deltaZ = 0;
+        switch (direction) {
+            case UP -> deltaY++;
+            case DOWN -> deltaY--;
+            case EAST -> deltaX++;
+            case WEST -> deltaX--;
+            case SOUTH -> deltaZ++;
+            case NORTH -> deltaZ--;
+        }
+        for(Block movedBlock: blocks){
+            Material blockBroken = movedBlock.getType();
+            if(Main.settings.getBlocksHashMap().containsKey(blockBroken) || Main.settings.getProducts().contains(blockBroken) || Main.settings.getSeeds().contains(blockBroken)){
+                Main.playerPlaced.remove(movedBlock);
+                Main.playerPlaced.add(world.getBlockAt(movedBlock.getLocation().add(deltaX, deltaY, deltaZ)));
             }
         }
     }
@@ -232,6 +263,10 @@ public class Money implements Listener {
                                                 }
                                             }, 0L);
                                         }
+
+                                        Pickup event = new Pickup(e.getPlayer(), drop.getQuantity());
+                                        Bukkit.getPluginManager().callEvent(event);
+
                                         Main.econ.depositPlayer(e.getPlayer(),(float) drop.getQuantity());
                                     }
                                 } catch(NullPointerException err){
@@ -259,6 +294,10 @@ public class Money implements Listener {
                     if(drop.hasQuantity()){
                         e.setCancelled(true);
                         e.getItem().remove();
+
+                        Pickup event = new Pickup((Player) e.getEntity(), drop.getQuantity());
+                        Bukkit.getPluginManager().callEvent(event);
+
                         Main.econ.depositPlayer((OfflinePlayer) e.getEntity(),(float) drop.getQuantity());
                     }
 
