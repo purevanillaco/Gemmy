@@ -21,4 +21,11 @@ public class Pickup extends Event {
         this.amount=amount;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
 }
