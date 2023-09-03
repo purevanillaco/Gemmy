@@ -1,6 +1,7 @@
 package co.purevanilla.mcplugins.gemmy.listener;
 
 import co.purevanilla.mcplugins.gemmy.Main;
+import co.purevanilla.mcplugins.gemmy.event.Death;
 import co.purevanilla.mcplugins.gemmy.event.Pickup;
 import co.purevanilla.mcplugins.gemmy.util.Drop;
 import org.bukkit.*;
@@ -225,6 +226,7 @@ public class Money implements Listener {
                             if (killer != null) {
                                 Drop drop = new Drop(e.getEntity().getLocation(), Main.settings.entityTypeRangeHashMap().get(e.getEntityType()).getAmount(),killer);
                                 drop.spawn();
+
                             }
                         } catch (NullPointerException err) {
 
@@ -295,8 +297,10 @@ public class Money implements Listener {
                         e.setCancelled(true);
                         e.getItem().remove();
 
-                        Pickup event = new Pickup((Player) e.getEntity(), drop.getQuantity());
-                        Bukkit.getPluginManager().callEvent(event);
+                        Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
+                            Pickup event = new Pickup((Player) e.getEntity(), drop.getQuantity());
+                            Bukkit.getPluginManager().callEvent(event);
+                        });
 
                         Main.econ.depositPlayer((OfflinePlayer) e.getEntity(),(float) drop.getQuantity());
                     }
@@ -407,6 +411,9 @@ public class Money implements Listener {
 
                             int amountToRemove = (int) (Main.econ.getBalance(e.getEntity())*((float) deathPercent/100));
                             Main.econ.withdrawPlayer(e.getEntity(),amountToRemove);
+
+                            Death event = new Death(e.getEntity(), amountToRemove);
+                            Bukkit.getPluginManager().callEvent(event);
 
                             Drop drop = new Drop(e.getEntity().getLocation(),amountToRemove);
                             drop.spawn();
