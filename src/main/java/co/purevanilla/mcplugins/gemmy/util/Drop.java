@@ -101,11 +101,7 @@ public class Drop {
 
 
                     if(player!=null){
-                        long originalQuantity = quantity;
-                        float correctionRate = Main.settings.getCorrectionRate(player);
-                        quantity=(long) Math.ceil(correctionRate*quantity);
-                        if(quantity==0&&originalQuantity>0&&correctionRate>0f) quantity=1; // the correction rate may null out drops and make em impossible, so we drop 1 gem if the cap hasn't been reached (correctionRate=0)
-                        Main.settings.addPickedUpGems(player, (int) quantity);
+                        quantity=Main.settings.getPlayerRate(player, quantity);
                     }
 
                     if(quantity > 0){
@@ -202,7 +198,7 @@ public class Drop {
                                     itemEntity[0].setGlowing(false);
 
                                 }
-                            }, Main.settings.getGlowDuration()*20);
+                            }, Main.settings.getGlowDuration()* 20L);
                         }
                     }
                 }
