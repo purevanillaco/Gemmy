@@ -1,19 +1,13 @@
 package co.purevanilla.mcplugins.gemmy.util;
 
 import co.purevanilla.mcplugins.gemmy.Main;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
-import java.util.logging.Level;
 
 public class Settings {
 
@@ -47,10 +41,21 @@ public class Settings {
     public Sound sound;
 
     // --- player drops cache
+    private Set<UUID> afk;
 
+    public void addAFK(UUID uuid){
+        this.afk.add(uuid);
+    }
+
+    public void unsetAFK(UUID uuid){
+        this.afk.remove(uuid);
+    }
+
+    public boolean isAFK(UUID uuid){
+        return this.afk.contains(uuid);
+    }
     Calendar calendar;
-    public long gemsPerDay;
-    public Map<UUID,Long> playerGemsAmount;
+    public Map<UUID,Double> playerGemsAmount;
     public int currentDate;
 
     // --- compiled lists for fast access
@@ -80,35 +85,41 @@ public class Settings {
         return currencyColor;
     }
 
-    public void addPickedUpGems(Player player, int amount){
-        if(!playerGemsAmount.containsKey(player.getUniqueId())){
-            playerGemsAmount.put(player.getUniqueId(), (long) amount);
-        } else {
-            playerGemsAmount.put(player.getUniqueId(), playerGemsAmount.get(player.getUniqueId())+amount);
-        }
-    }
+    public int getPlayerRate(Player player, double amount){
+        if(this.isAFK(player.getUniqueId())) return 0;
 
-    public float getCorrectionRate(Player player){
-        if(gemsPerDay>0){
+        double balance=Main.econ.getBalance(player);
+
+        double denominator = 1+(balance-6000)/Math.pow(10, 4);
+        if(denominator==0) denominator=1;
+        double decimal = balance/denominator;
+        if(decimal>amount) decimal=amount;
+        if(decimal<0) return 0;
+        if(decimal>=1) {
+            return (int) Math.floor(decimal);
+        } else {
             int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-            if(currentDate!=dayOfMonth){
+            if(currentDate!=dayOfMonth) {
                 // resets player obtained gems when a new day comes
                 playerGemsAmount.clear();
-                currentDate=dayOfMonth;
-            } else if(playerGemsAmount.containsKey(player.getUniqueId())){
-                float adjustedCorrection = 1f-(float) playerGemsAmount.get(player.getUniqueId())/gemsPerDay;
-                return Math.max(adjustedCorrection, 0f);
+                currentDate = dayOfMonth;
+            }
+
+            if(!playerGemsAmount.containsKey(player.getUniqueId())) {
+                playerGemsAmount.put(player.getUniqueId(), 0.0);
+            }
+
+            decimal/=2;
+
+            double sum = playerGemsAmount.get(player.getUniqueId()) + decimal;
+            if(sum>=1) {
+                playerGemsAmount.put(player.getUniqueId(), sum-1.0);
+                return 1;
+            } else {
+                playerGemsAmount.put(player.getUniqueId(), sum);
+                return 0;
             }
         }
-        return 1f;
-    }
-
-    public void saveData(FileConfiguration data, File file) throws IOException {
-        data.set("dayOfMonth",currentDate);
-        for(Map.Entry<UUID, Long> entry : playerGemsAmount.entrySet()) {
-            data.set("playerGems."+entry.getKey().toString(),entry.getValue());
-        }
-        data.save(file);
     }
 
     public String getDropName(long amount){
@@ -186,10 +197,9 @@ public class Settings {
     public Harvest getHarvestFromSeed(Material seeds){
 
         Harvest result = null;
-        Iterator farmingIterator = farming.entrySet().iterator();
+        Iterator<Map.Entry<Material, Harvest>> farmingIterator = farming.entrySet().iterator();
         while (farmingIterator.hasNext()) {
-
-            Map.Entry pair = (Map.Entry) farmingIterator.next();
+            Map.Entry pair = farmingIterator.next();
             Harvest harvest = (Harvest) pair.getValue();
             if(harvest.getSeed()==seeds){
                 result=harvest;
@@ -238,21 +248,11 @@ public class Settings {
         return farming.get(result);
     }
 
-    public Settings(FileConfiguration configuration, FileConfiguration data){
-
+    public Settings(FileConfiguration configuration){
+        afk=new HashSet<>();
         calendar=Calendar.getInstance();
         playerGemsAmount = new HashMap<>();
         currentDate = calendar.get(Calendar.DAY_OF_MONTH);
-        if(currentDate==data.getInt("dayOfMonth")){
-            // restore gem pickup counts for that day
-            Set<String> playerUUIDs = Objects.requireNonNull(data.getConfigurationSection("playerGems")).getKeys(false);
-            for (String uuidStr:playerUUIDs) {
-                playerGemsAmount.put(UUID.fromString(uuidStr),data.getLong("playerGems."+uuidStr));
-            }
-        } else {
-            Main.plugin.getLogger().log(Level.INFO,"skipping load, different day of month");
-        }
-        gemsPerDay=configuration.getLong("drops.gems-per-day-per-player");
 
         lengthPlaced = configuration.getInt("drops.player-placed-history-length");
 
@@ -325,31 +325,28 @@ public class Settings {
 
     public void compileLists(){
 
-        Iterator blockIterator = blocks.entrySet().iterator();
+        Iterator<Map.Entry<Material, Range>> blockIterator = blocks.entrySet().iterator();
         this.blockMaterials=new ArrayList<>();
 
         while (blockIterator.hasNext()) {
-
-            Map.Entry pair = (Map.Entry) blockIterator.next();
+            Map.Entry pair = blockIterator.next();
             this.blockMaterials.add((Material) pair.getKey());
 
         }
 
-        Iterator entityIterator = entities.entrySet().iterator();
+        Iterator<Map.Entry<EntityType, Range>> entityIterator = entities.entrySet().iterator();
         this.entityTypes=new ArrayList<>();
         while (entityIterator.hasNext()) {
-
-            Map.Entry pair = (Map.Entry) entityIterator.next();
+            Map.Entry pair = entityIterator.next();
             this.entityTypes.add((EntityType) pair.getKey());
 
         }
 
-        Iterator farmingIterator = farming.entrySet().iterator();
+        Iterator<Map.Entry<Material, Harvest>> farmingIterator = farming.entrySet().iterator();
         this.seeds=new ArrayList<>();
         this.products=new ArrayList<>();
         while (farmingIterator.hasNext()) {
-
-            Map.Entry pair = (Map.Entry) farmingIterator.next();
+            Map.Entry pair = farmingIterator.next();
             Harvest harvest = (Harvest) pair.getValue();
             this.seeds.add(harvest.getSeed());
             this.products.add((Material) pair.getKey());

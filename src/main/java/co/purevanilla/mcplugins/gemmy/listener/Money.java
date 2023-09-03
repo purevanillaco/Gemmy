@@ -4,6 +4,8 @@ import co.purevanilla.mcplugins.gemmy.Main;
 import co.purevanilla.mcplugins.gemmy.event.Death;
 import co.purevanilla.mcplugins.gemmy.event.Pickup;
 import co.purevanilla.mcplugins.gemmy.util.Drop;
+import net.lapismc.afkplus.api.AFKStartEvent;
+import net.lapismc.afkplus.api.AFKStopEvent;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -428,7 +430,16 @@ public class Money implements Listener {
                 }
             }
         });
+    }
 
+    @EventHandler
+    public void onAfkStart(AFKStartEvent event){
+        Main.settings.addAFK(event.getPlayer().getUUID());
+    }
+
+    @EventHandler
+    public void onAfkStop(AFKStopEvent event){
+        Main.settings.unsetAFK(event.getPlayer().getUUID());
     }
 
 }

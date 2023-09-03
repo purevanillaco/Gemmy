@@ -54,6 +54,13 @@
             <version>1.7</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>net.lapismc</groupId>
+            <artifactId>afkplus</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>/home/quique/Documentos/purevanilla/Playtime/src/lib/AFKPlus.jar</systemPath>
+        </dependency>
     </dependencies>
 
 </project>
