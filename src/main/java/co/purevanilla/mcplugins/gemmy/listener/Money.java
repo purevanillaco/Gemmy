@@ -149,8 +149,10 @@ public class Money implements Listener {
                             Drop drop = new Drop(item);
                             if(drop.hasQuantity()){
 
-                                Pickup event = new Pickup((Player) e.getWhoClicked(), drop.getQuantity());
-                                Bukkit.getPluginManager().callEvent(event);
+                                Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
+                                    Pickup event = new Pickup((Player) e.getWhoClicked(), drop.getQuantity());
+                                    Bukkit.getPluginManager().callEvent(event);
+                                });
 
                                 Main.econ.depositPlayer((OfflinePlayer) e.getWhoClicked(),(float) drop.getQuantity());
                                 item.setAmount(0);
@@ -266,8 +268,10 @@ public class Money implements Listener {
                                             }, 0L);
                                         }
 
-                                        Pickup event = new Pickup(e.getPlayer(), drop.getQuantity());
-                                        Bukkit.getPluginManager().callEvent(event);
+                                        Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
+                                            Pickup event = new Pickup(e.getPlayer(), drop.getQuantity());
+                                            Bukkit.getPluginManager().callEvent(event);
+                                        });
 
                                         Main.econ.depositPlayer(e.getPlayer(),(float) drop.getQuantity());
                                     }
@@ -369,10 +373,8 @@ public class Money implements Listener {
                                     public void run() {
 
                                         if(e.getBlock().getLocation().getWorld().getBlockAt(e.getBlock().getLocation()).getType() == originalType){
-
                                             Main.expectedReplants.remove(e.getBlock().getLocation());
                                             new Drop(e.getBlock().getLocation(),Main.settings.getHarvest(originalType).getReplant().getAmount()).spawn();
-
                                         }
 
                                     }
@@ -412,8 +414,10 @@ public class Money implements Listener {
                             int amountToRemove = (int) (Main.econ.getBalance(e.getEntity())*((float) deathPercent/100));
                             Main.econ.withdrawPlayer(e.getEntity(),amountToRemove);
 
-                            Death event = new Death(e.getEntity(), amountToRemove);
-                            Bukkit.getPluginManager().callEvent(event);
+                            Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
+                                Death event = new Death(e.getEntity(), amountToRemove);
+                                Bukkit.getPluginManager().callEvent(event);
+                            });
 
                             Drop drop = new Drop(e.getEntity().getLocation(),amountToRemove);
                             drop.spawn();
