@@ -20,9 +20,9 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -118,57 +118,19 @@ public class Money implements Listener {
     }
 
     @EventHandler
-    public void inventoryEvent(final InventoryClickEvent e){
-
-        Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
-            @Override
-            public void run() {
-
-                try{
-                    List<ItemStack> itemStacks = new ArrayList<>();
-                    if(e.getAction()== InventoryAction.PLACE_ALL||e.getAction()==InventoryAction.PLACE_ONE ||e.getAction()==InventoryAction.PLACE_SOME){
-                        if(e.getClickedInventory().getType()==InventoryType.PLAYER){
-                            ItemStack[] Slots = e.getClickedInventory().getStorageContents();
-                            for (ItemStack item:Slots) {
-                                if(item!=null){
-                                    itemStacks.add(item);
-                                }
-                            }
-                        }
-                    } else if(e.getAction()==InventoryAction.MOVE_TO_OTHER_INVENTORY){
-                        for (HumanEntity entity :e.getViewers()) {
-                            ItemStack[] Slots = entity.getInventory().getStorageContents();
-                            for (ItemStack item:Slots) {
-                                if(item != null){
-                                    itemStacks.add(item);
-                                }
-                            }
-                        }
-                    }
-
-                    for (ItemStack item:itemStacks) {
-                        try{
-                            Drop drop = new Drop(item);
-                            if(drop.hasQuantity()){
-
-                                Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
-                                    Pickup event = new Pickup((Player) e.getWhoClicked(), drop.getQuantity());
-                                    Bukkit.getPluginManager().callEvent(event);
-                                });
-
-                                Main.econ.depositPlayer((OfflinePlayer) e.getWhoClicked(),(float) drop.getQuantity());
-                                item.setAmount(0);
-                            }
-                        } catch (NullPointerException err){
-                            // invalid drop
-                        }
-                    }
-                } catch(NullPointerException err){
-
+    public void hopperEvent(final InventoryPickupItemEvent e){
+        if(e.getInventory().getType().equals(InventoryType.HOPPER)){
+            try{
+                Drop drop = new Drop(e.getItem().getItemStack());
+                if(drop.hasQuantity()){
+                    e.getItem().getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, e.getItem().getLocation(), 1);
+                    e.getItem().remove();
+                    e.setCancelled(true);
                 }
+            } catch (NullPointerException err){
+                // invalid drop
             }
-        });
-
+        }
     }
 
     @EventHandler
@@ -215,7 +177,6 @@ public class Money implements Listener {
             event.getTransformedEntity().setMetadata("Spawner",new FixedMetadataValue(Main.plugin,true));
         }
     }
-
 
     @EventHandler
     public void entityDeath(final EntityDeathEvent e){
@@ -275,7 +236,8 @@ public class Money implements Listener {
                                             Bukkit.getPluginManager().callEvent(event);
                                         });
 
-                                        Main.econ.depositPlayer(e.getPlayer(),(float) drop.getQuantity());
+                                        Main.settings.baltop.addPoints(e.getPlayer(), BigDecimal.valueOf(drop.getQuantity()), drop.isDeath());
+
                                     }
                                 } catch(NullPointerException err){
                                     // fix it later I guess?
@@ -286,8 +248,6 @@ public class Money implements Listener {
                 });
             }
         }
-
-
     }
 
     @EventHandler
@@ -308,7 +268,8 @@ public class Money implements Listener {
                             Bukkit.getPluginManager().callEvent(event);
                         });
 
-                        Main.econ.depositPlayer((OfflinePlayer) e.getEntity(),(float) drop.getQuantity());
+                        Main.settings.baltop.addPoints((Player) e.getEntity(), BigDecimal.valueOf(drop.getQuantity()), drop.isDeath());
+
                     }
 
                 }
@@ -322,7 +283,6 @@ public class Money implements Listener {
 
     @EventHandler
     public void entityMating(final EntityBreedEvent e){
-
         Bukkit.getScheduler().runTaskAsynchronously(Main.plugin, new Runnable() {
             @Override
             public void run() {
@@ -341,7 +301,6 @@ public class Money implements Listener {
 
             }
         });
-
     }
 
     @EventHandler
@@ -410,6 +369,7 @@ public class Money implements Listener {
                             for (int i = 100; i > -1 ; i--) {
                                 if(Objects.requireNonNull(e.getEntity().getPlayer()).hasPermission("gemmy.death."+i)){
                                     deathPercent=i;
+                                    break;
                                 }
                             }
 
@@ -421,7 +381,7 @@ public class Money implements Listener {
                                 Bukkit.getPluginManager().callEvent(event);
                             });
 
-                            Drop drop = new Drop(e.getEntity().getLocation(),amountToRemove);
+                            Drop drop = new Drop(e.getEntity().getLocation(),amountToRemove,true);
                             drop.spawn();
                         }
                     } catch (NullPointerException err){

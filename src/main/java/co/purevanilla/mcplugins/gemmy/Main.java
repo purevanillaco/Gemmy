@@ -1,5 +1,6 @@
 package co.purevanilla.mcplugins.gemmy;
 
+import co.purevanilla.mcplugins.gemmy.cmd.Baltop;
 import co.purevanilla.mcplugins.gemmy.cmd.DropAmount;
 import co.purevanilla.mcplugins.gemmy.cmd.MoneyRain;
 import co.purevanilla.mcplugins.gemmy.util.Harvest;
@@ -8,14 +9,10 @@ import co.purevanilla.mcplugins.gemmy.util.Settings;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
@@ -37,7 +34,7 @@ public class Main extends JavaPlugin {
         plugin=this;
 
         saveDefaultConfig();
-        settings=new Settings(this.getConfig());
+        settings=new Settings(this.getConfig(), this);
 
         if (!setupEconomy() ) {
             this.getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
@@ -51,8 +48,18 @@ public class Main extends JavaPlugin {
         MoneyRain moneyRainManager = new MoneyRain();
         Objects.requireNonNull(this.getCommand("moneyrain")).setExecutor(moneyRainManager);
         Objects.requireNonNull(this.getCommand("gemdrop")).setExecutor(new DropAmount());
+        Objects.requireNonNull(this.getCommand("balancetop")).setExecutor(new Baltop());
         moneyRainManager.startChecker();
+    }
 
+    @Override
+    public void onDisable() {
+        super.onDisable();
+        try {
+            Main.settings.baltop.save();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private boolean setupEconomy() {

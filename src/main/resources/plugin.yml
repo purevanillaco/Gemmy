@@ -2,12 +2,16 @@ main: co.purevanilla.mcplugins.gemmy.Main
 author: quiquelhappy
 api-version: 1.20
 description: "Semi-item based economy"
-version: 2.5.0
+version: 3.0.1
 name: "Gemmy"
 depend:
   - Vault
   - AFKPlus
+  - Essentials
 commands:
+  balancetop:
+    aliases: [baltop]
+    description: shows total points and balance top
   gemdrop:
     permission: "gemmy.gemdrop"
     aliases: ["drop"]

@@ -4,6 +4,11 @@
 # - PARTICLES: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
 # - ITEMS: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
+format:
+  entry: "<dark_gray>▸</dark_gray> <gray><player>:</gray> <light_purple><value> ▲</light_purple>"
+  economy_header: "<newline><light_purple>•</light_purple> <gray>Top players by balance</gray>"
+  points_header: "<newline><light_purple>•</light_purple> <gray>Top players by income</gray>"
+
 drops:
   gems-per-day-per-player: 0 # set to 0 or lower to disable. if enabled, players will get fewer gems when they are closer to reach the daily limit of gems
   player-placed-history-length: 16384    # use lower if you don't have that much ram

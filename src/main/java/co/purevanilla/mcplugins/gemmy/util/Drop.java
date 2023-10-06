@@ -18,16 +18,29 @@ public class Drop {
     Location location;
     Player player;
     long quantity = 0;
+    boolean death;
 
     public Drop(Location location, long quantity){
         this.location=location;
         this.quantity=quantity;
+        this.death=false;
+    }
+
+    public Drop(Location location, long quantity, boolean death){
+        this.location=location;
+        this.quantity=quantity;
+        this.death=true;
     }
 
     public Drop(Location location, long quantity, Player player){
         this.location=location;
         this.quantity=quantity;
+        this.death=false;
         this.player=player;
+    }
+
+    public boolean isDeath(){
+        return this.death;
     }
 
     public boolean hasQuantity(){
@@ -57,6 +70,7 @@ public class Drop {
         List<String> metaList = itemMeta.getLore();
         boolean createdByGemmy = false;
         long temporalQuantity = 0;
+        this.death=false;
 
         for (String metaLine:metaList) {
 
@@ -66,6 +80,8 @@ public class Drop {
                 if(metaLine.split(":")[1].equals("gem")){
                     createdByGemmy=true;
                 }
+            } else if(metaLine.startsWith("death")){
+                this.death=true;
             }
 
         }
@@ -113,6 +129,9 @@ public class Drop {
                             List<String> lores = new ArrayList<>();
                             lores.add("quantity:"+quantity);
                             lores.add("gnb:gem");
+                            if(death){
+                                lores.add("death");
+                            }
                             itemMeta.setLore(lores);
                             item.setItemMeta(itemMeta);
 
@@ -154,6 +173,9 @@ public class Drop {
                             List<String> lores = new ArrayList<>();
                             lores.add("quantity:"+quantity);
                             lores.add("gnb:gem");
+                            if(death){
+                                lores.add("death");
+                            }
                             itemMeta.setLore(lores);
                             item.setItemMeta(itemMeta);
 

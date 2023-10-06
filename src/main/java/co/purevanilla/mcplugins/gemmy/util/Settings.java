@@ -1,15 +1,22 @@
 package co.purevanilla.mcplugins.gemmy.util;
 
 import co.purevanilla.mcplugins.gemmy.Main;
+import co.purevanilla.mcplugins.gemmy.baltop.Baltop;
 import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.util.*;
 
 public class Settings {
+
+    // ---
+    public Baltop baltop;
+
+    // ---
 
     public int lengthPlaced;
 
@@ -86,25 +93,20 @@ public class Settings {
     }
 
     public int getPlayerRate(Player player, double amount){
-        if(this.isAFK(player.getUniqueId())) return 0;
+        if(this.isAFK(player.getUniqueId())) {
+            return 0;
+        }
 
-        double balance=Main.econ.getBalance(player);
+        double balance=this.baltop.getIncome(player).doubleValue();
 
         double denominator = 1+(balance-6000)/Math.pow(10, 4);
         if(denominator==0) denominator=1;
-        double decimal = balance/denominator;
+        double decimal = amount/denominator;
         if(decimal>amount) decimal=amount;
         if(decimal<0) return 0;
         if(decimal>=1) {
             return (int) Math.floor(decimal);
         } else {
-            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-            if(currentDate!=dayOfMonth) {
-                // resets player obtained gems when a new day comes
-                playerGemsAmount.clear();
-                currentDate = dayOfMonth;
-            }
-
             if(!playerGemsAmount.containsKey(player.getUniqueId())) {
                 playerGemsAmount.put(player.getUniqueId(), 0.0);
             }
@@ -248,11 +250,11 @@ public class Settings {
         return farming.get(result);
     }
 
-    public Settings(FileConfiguration configuration){
+    public Settings(FileConfiguration configuration, Plugin plugin){
         afk=new HashSet<>();
-        calendar=Calendar.getInstance();
         playerGemsAmount = new HashMap<>();
-        currentDate = calendar.get(Calendar.DAY_OF_MONTH);
+
+        this.baltop=new Baltop(plugin);
 
         lengthPlaced = configuration.getInt("drops.player-placed-history-length");
 
