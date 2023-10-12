@@ -3,6 +3,8 @@ package co.purevanilla.mcplugins.gemmy.listener;
 import co.purevanilla.mcplugins.gemmy.Main;
 import co.purevanilla.mcplugins.gemmy.event.Death;
 import co.purevanilla.mcplugins.gemmy.event.Pickup;
+import co.purevanilla.mcplugins.gemmy.transaction.TransactionListener;
+import co.purevanilla.mcplugins.gemmy.transaction.TransactionType;
 import co.purevanilla.mcplugins.gemmy.util.Drop;
 import net.lapismc.afkplus.api.AFKStartEvent;
 import net.lapismc.afkplus.api.AFKStopEvent;
@@ -23,11 +25,15 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Money implements Listener {
+
+    TransactionListener listener;
+    public Money(TransactionListener listener){
+        this.listener=listener;
+    }
 
     @EventHandler
     public void blockDestroy(final BlockBreakEvent e){
@@ -237,6 +243,7 @@ public class Money implements Listener {
                                         });
 
                                         Main.settings.baltop.addPoints(e.getPlayer(), BigDecimal.valueOf(drop.getQuantity()), drop.isDeath());
+                                        listener.addTransaction(e.getPlayer().getUniqueId(), false, (int) drop.getQuantity(), (int) Main.econ.getBalance(e.getPlayer()), TransactionType.GEM);
 
                                     }
                                 } catch(NullPointerException err){
@@ -269,6 +276,7 @@ public class Money implements Listener {
                         });
 
                         Main.settings.baltop.addPoints((Player) e.getEntity(), BigDecimal.valueOf(drop.getQuantity()), drop.isDeath());
+                        listener.addTransaction(((Player) e.getEntity()).getUniqueId(), false, (int) drop.getQuantity(), (int) Main.econ.getBalance((Player) e.getEntity()), TransactionType.GEM);
 
                     }
 
@@ -373,8 +381,10 @@ public class Money implements Listener {
                                 }
                             }
 
-                            int amountToRemove = (int) (Main.econ.getBalance(e.getEntity())*((float) deathPercent/100));
+                            double playerBalance = Main.econ.getBalance(e.getEntity());
+                            int amountToRemove = (int) (playerBalance*((float) deathPercent/100));
                             Main.econ.withdrawPlayer(e.getEntity(),amountToRemove);
+                            listener.addTransaction(e.getPlayer().getUniqueId(), true, amountToRemove, (int) playerBalance, TransactionType.GEM);
 
                             Main.plugin.getServer().getScheduler().runTask(Main.plugin, () -> {
                                 Death event = new Death(e.getEntity(), amountToRemove);

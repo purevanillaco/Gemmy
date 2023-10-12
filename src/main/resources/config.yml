@@ -4,6 +4,14 @@
 # - PARTICLES: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
 # - ITEMS: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
 
+mariadb:
+  host: "host.docker.internal"
+  port: 3306
+  user: "purevanilla"
+  password: "purevanilla"
+  database: "purevanilla"
+  prefix: "cool_"
+
 format:
   entry: "<dark_gray>▸</dark_gray> <gray><player>:</gray> <light_purple><value> ▲</light_purple>"
   economy_header: "<newline><light_purple>•</light_purple> <gray>Top players by balance</gray>"
@@ -74,8 +82,8 @@ blocks:
     min: 1
     max: 3
   NETHER_QUARTZ_ORE:
-    min: 1
-    max: 2
+    min: 0
+    max: 1
   REDSTONE_ORE:
     min: 0
     max: 1

@@ -43,9 +43,23 @@
             <id>essentials-releases</id>
             <url>https://repo.essentialsx.net/releases/</url>
         </repository>
+        <repository>
+            <id>quickshop-repo</id>
+            <url>https://repo.codemc.io/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.maxgamer</groupId>
+            <artifactId>QuickShop</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>LATEST</version>
+        </dependency>
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
@@ -63,7 +77,7 @@
             <artifactId>afkplus</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>/home/quique/Documentos/purevanilla/Gemmy/src/lib/AFKPlus.jar</systemPath>
+            <systemPath>C:\Users\quique\IdeaProjects\Gemmy\src\lib\AFKPlus.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>net.essentialsx</groupId>

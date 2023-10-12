@@ -3,6 +3,7 @@ package co.purevanilla.mcplugins.gemmy;
 import co.purevanilla.mcplugins.gemmy.cmd.Baltop;
 import co.purevanilla.mcplugins.gemmy.cmd.DropAmount;
 import co.purevanilla.mcplugins.gemmy.cmd.MoneyRain;
+import co.purevanilla.mcplugins.gemmy.transaction.TransactionListener;
 import co.purevanilla.mcplugins.gemmy.util.Harvest;
 import co.purevanilla.mcplugins.gemmy.listener.Money;
 import co.purevanilla.mcplugins.gemmy.util.Settings;
@@ -14,6 +15,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.logging.Level;
 
@@ -27,6 +29,7 @@ public class Main extends JavaPlugin {
     public static List<Block> playerPlaced = new ArrayList<Block>();
     public static HashMap<Location, Harvest> expectedReplants = new HashMap<Location, Harvest>();
     public static Economy econ = null;
+    public TransactionListener listener;
 
     @Override
     public void onEnable() {
@@ -41,7 +44,13 @@ public class Main extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         } else {
-            getServer().getPluginManager().registerEvents(new Money(), this);
+            try {
+                this.listener = new TransactionListener(this);
+                getServer().getPluginManager().registerEvents(this.listener, this);
+            } catch (SQLException | IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            getServer().getPluginManager().registerEvents(new Money(this.listener), this);
             this.getLogger().log(Level.INFO,"enabled drops");
         }
 
@@ -57,7 +66,8 @@ public class Main extends JavaPlugin {
         super.onDisable();
         try {
             Main.settings.baltop.save();
-        } catch (IOException e) {
+            this.listener.flush();
+        } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
