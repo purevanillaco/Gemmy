@@ -1,12 +1,12 @@
 package co.purevanilla.mcplugins.gemmy.transaction;
 
 import co.purevanilla.mcplugins.gemmy.Main;
+import com.ghostchu.quickshop.api.event.ShopPurchaseEvent;
 import net.ess3.api.events.UserBalanceUpdateEvent;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
-import org.maxgamer.quickshop.api.event.ShopPurchaseEvent;
 
 import javax.annotation.Nullable;
 import java.io.BufferedReader;
@@ -82,8 +82,8 @@ public class TransactionListener implements Listener {
     public void playerShopEvent(ShopPurchaseEvent event){
         if(!event.getPurchaser().equals(event.getShop().getOwner())){
             int total = (int) Math.floor(event.getTotal());
-            this.addTransaction(event.getPurchaser(), true, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(event.getPurchaser())), TransactionType.SHOP);
-            this.addTransaction(event.getShop().getOwner(), false, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(event.getShop().getOwner())), TransactionType.SHOP);
+            this.addTransaction(event.getPurchaser().getUniqueId(), true, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(Objects.requireNonNull(event.getPurchaser().getUniqueId()))), TransactionType.SHOP);
+            this.addTransaction(event.getShop().getOwner().getUniqueId(), false, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(Objects.requireNonNull(event.getShop().getOwner().getUniqueId()))), TransactionType.SHOP);
         }
     }
 

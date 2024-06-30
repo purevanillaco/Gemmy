@@ -2,13 +2,13 @@ main: co.purevanilla.mcplugins.gemmy.Main
 author: quiquelhappy
 api-version: 1.20
 description: "Semi-item based economy"
-version: 3.1.0
+version: 3.2.0
 name: "Gemmy"
 depend:
   - Vault
   - AFKPlus
   - Essentials
-  - QuickShop
+  - QuickShop-Hikari
 commands:
   balancetop:
     aliases: [baltop]

@@ -44,16 +44,18 @@
             <url>https://repo.essentialsx.net/releases/</url>
         </repository>
         <repository>
-            <id>quickshop-repo</id>
+            <id>codemc</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>org.maxgamer</groupId>
-            <artifactId>QuickShop</artifactId>
-            <version>RELEASE</version>
+            <groupId>com.ghostchu</groupId>
+            <artifactId>quickshop-bukkit</artifactId>
+            <version>6.2.0.5</version>
+            <scope>provided</scope>
+            <classifier>shaded</classifier>
         </dependency>
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
