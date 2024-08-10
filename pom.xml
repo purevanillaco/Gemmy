@@ -51,13 +51,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.ghostchu</groupId>
-            <artifactId>quickshop-bukkit</artifactId>
-            <version>6.2.0.5</version>
-            <scope>provided</scope>
-            <classifier>shaded</classifier>
-        </dependency>
-        <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>LATEST</version>

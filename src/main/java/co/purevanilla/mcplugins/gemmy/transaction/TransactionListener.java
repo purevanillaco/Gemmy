@@ -1,7 +1,6 @@
 package co.purevanilla.mcplugins.gemmy.transaction;
 
 import co.purevanilla.mcplugins.gemmy.Main;
-import com.ghostchu.quickshop.api.event.ShopPurchaseEvent;
 import net.ess3.api.events.UserBalanceUpdateEvent;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.EventHandler;
@@ -76,15 +75,6 @@ public class TransactionListener implements Listener {
             type = TransactionType.PAY;
         }
         if(type!=null) this.addTransaction(uuid, withdrawal, value, balanceInt, type);
-    }
-
-    @EventHandler
-    public void playerShopEvent(ShopPurchaseEvent event){
-        if(!event.getPurchaser().equals(event.getShop().getOwner())){
-            int total = (int) Math.floor(event.getTotal());
-            this.addTransaction(event.getPurchaser().getUniqueId(), true, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(Objects.requireNonNull(event.getPurchaser().getUniqueId()))), TransactionType.SHOP);
-            this.addTransaction(event.getShop().getOwner().getUniqueId(), false, total, (int) Main.econ.getBalance(this.plugin.getServer().getOfflinePlayer(Objects.requireNonNull(event.getShop().getOwner().getUniqueId()))), TransactionType.SHOP);
-        }
     }
 
     public void addTransaction(UUID player, boolean withdraw, int value, int balance, @Nullable TransactionType type){
